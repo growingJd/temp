@@ -46,14 +46,31 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 ### 설명
 ## 데이터베이스 테이블 설명
 
-이 프로젝트에서는 4개의 주요 테이블(`avatar`, `member`, `category`, `record`)의 관계와 그 속성을 아래에 설명합니다.
+이 프로젝트에서는 6개의 주요 테이블(`Characters`,`Items`,`avatar`, `member`, `category`, `record`)의 관계와 그 속성을 아래에 설명합니다.
 
-### 1. `avatar` 테이블
+
+### 1. `Characters` 테이블
+
+- **characterIdx** (INT, PRIMARY KEY): 캐릭터의 고유 식별자.
+- **characterName** (VARCHAR(30)): 캐릭터 명
+- **avatar_url** (VARCHAR(255)): 캐릭터 이미지의 URL.
+
+
+### 2. `Items` 테이블
+
+- **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
+- **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
+- **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
+-  - - **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
+- **avatar_url** (VARCHAR(255)): 아바타 이미지의 URL.
+
+
+### 3. `avatar` 테이블
 
 - **avatar_id** (INT, PRIMARY KEY): 아바타의 고유 식별자.
 - **avatar_url** (VARCHAR(255)): 아바타 이미지의 URL.
 
-### 2. `member` 테이블
+### 4. `member` 테이블
 
 - **member_id** (INT, PRIMARY KEY): 회원의 고유 식별자.
 - **username** (VARCHAR(30)): 회원의 사용자 이름.
@@ -65,13 +82,13 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 - **update_date** (DATETIME): 회원 정보가 마지막으로 업데이트된 날짜.
 - **delYn** (TINYINT(1)): 회원 삭제 여부.
 
-### 3. `category` 테이블
+### 5. `category` 테이블
 
 - **category_id** (INT, PRIMARY KEY): 카테고리의 고유 식별자.
 - **category_name** (VARCHAR(50)): 카테고리 이름.
 - **category_type** (VARCHAR(10)): 카테고리 유형.
 
-### 4. `record` 테이블
+### 6. `record` 테이블
 
 - **record_id** (INT, PRIMARY KEY): 기록의 고유 식별자.
 - **amount** (DECIMAL(10, 2)): 금액.
