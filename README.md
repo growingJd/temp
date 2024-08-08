@@ -41,7 +41,7 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 4. Spring 애플리케이션을 실행합니다.
 
 ## ERD 다이어그램
-![image](https://github.com/user-attachments/assets/9fa74a82-e0e9-491c-a47e-4f923a58b260)
+![DB_ERD(5)](https://github.com/user-attachments/assets/5fa3286e-2727-408b-8bc2-0351652561d7)
 
 ### 설명
 ## 데이터베이스 테이블 설명
