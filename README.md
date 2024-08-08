@@ -46,7 +46,7 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 ### 설명
 ## 데이터베이스 테이블 설명
 
-이 프로젝트에서는 6개의 주요 테이블(`Characters`,`Items`,`Avatar`, `member`, `category`, `record`)의 관계와 그 속성을 아래에 설명합니다.
+이 프로젝트에서는 6개의 주요 테이블(`Characters`,`Items`,`Avatar`, `Member`, `Category`, `Record`)의 관계와 그 속성을 아래에 설명합니다.
 
 
 ### 1. `Characters` 테이블
@@ -68,39 +68,38 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 ### 3. `Avatar` 테이블
 
 - **avatarIdx** (INT, PRIMARY KEY): 아바타의 고유 식별자.
-- **characterIdx** (INT): 캐릭터 명
-- **itemIdx** (INT): 아이템 명
+- **characterIdx** (INT, FOREIGN KEY): 캐릭터 테이블과의 외래키 관계
+- **itemIdx** (INT, FOREIGN KEY): 아이템 테이블과의 외래키 관계
 
 
-### 4. `member` 테이블
+### 4. `Member` 테이블
 
-- **member_id** (INT, PRIMARY KEY): 회원의 고유 식별자.
-- **username** (VARCHAR(30)): 회원의 사용자 이름.
+- **userIdx** (INT, PRIMARY KEY): 회원의 고유 식별자.
+- **memberId** (VARCHAR(30)): 회원의 사용자 아이디.
 - **userPw** (VARCHAR(255)): 회원의 비밀번호.
 - **userPn** (VARCHAR(15)): 회원의 전화번호.
 - **userMail** (VARCHAR(255)): 회원의 이메일 주소.
-- **avatar_id** (INT, FOREIGN KEY): 아바타 테이블과의 외래키 관계.
+- **avatarIdx** (INT, FOREIGN KEY): 아바타 테이블과의 외래키 관계.
 - **userDate** (DATETIME): 회원 가입 날짜.
-- **update_date** (DATETIME): 회원 정보가 마지막으로 업데이트된 날짜.
+- **updateDate** (DATETIME): 회원 정보가 마지막으로 업데이트된 날짜.
 - **delYn** (TINYINT(1)): 회원 삭제 여부.
 
-### 5. `category` 테이블
+### 5. `Category` 테이블
 
-- **category_id** (INT, PRIMARY KEY): 카테고리의 고유 식별자.
-- **category_name** (VARCHAR(50)): 카테고리 이름.
-- **category_type** (VARCHAR(10)): 카테고리 유형.
+- **categoryIdx** (INT, PRIMARY KEY): 카테고리의 고유 식별자.
+- **categoryName** (VARCHAR(50)): 카테고리 이름.
+- **categoryType** (VARCHAR(10)): 카테고리 유형.
 
-### 6. `record` 테이블
+### 6. `Record` 테이블
 
-- **record_id** (INT, PRIMARY KEY): 기록의 고유 식별자.
+- **recordIdx** (INT, PRIMARY KEY): 기록의 고유 식별자.
 - **amount** (DECIMAL(10, 2)): 금액.
-- **reg_date** (DATETIME): 기록 생성 날짜.
-- **update_date** (DATETIME): 기록이 마지막으로 업데이트된 날짜.
-- **member_id** (INT, FOREIGN KEY): 회원 테이블과의 외래키 관계.
-- **category_id** (INT, FOREIGN KEY): 카테고리 테이블과의 외래키 관계.
-- **category_type** (VARCHAR(10)): 카테고리 유형.
-- **record_memo** (TEXT): 기록에 대한 메모.
-- **record_details** (TEXT): 기록의 세부 사항.
+- **regDate** (DATETIME): 기록 생성 날짜.
+- **updateDate** (DATETIME): 기록이 마지막으로 업데이트된 날짜.
+- **memberId** (INT, FOREIGN KEY): 회원 테이블과의 외래키 관계.
+- **categoryIdx** (INT, FOREIGN KEY): 카테고리 테이블과의 외래키 관계.
+- **recordMemo** (TEXT): 기록에 대한 메모.
+- **recordDetails** (TEXT): 기록의 세부 사항.
 - **delYn** (TINYINT(1)): 기록 삭제 여부.
 
 ### 테이블 간의 관계
