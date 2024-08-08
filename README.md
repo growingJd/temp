@@ -46,7 +46,7 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 ### 설명
 ## 데이터베이스 테이블 설명
 
-이 프로젝트에서는 6개의 주요 테이블(`Characters`,`Items`,`avatar`, `member`, `category`, `record`)의 관계와 그 속성을 아래에 설명합니다.
+이 프로젝트에서는 6개의 주요 테이블(`Characters`,`Items`,`Avatar`, `member`, `category`, `record`)의 관계와 그 속성을 아래에 설명합니다.
 
 
 ### 1. `Characters` 테이블
@@ -59,16 +59,18 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 ### 2. `Items` 테이블
 
 - **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
-- **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
-- **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
--  - - **itemIdx** (INT, PRIMARY KEY): 아이템의 고유 식별자.
-- **avatar_url** (VARCHAR(255)): 아바타 이미지의 URL.
+- **itemName** (VARCHAR(30)): 아이템 명 
+- **itemType** (VARCHAR(30)): 아이템의 종류(머리, 몸 착용부위 구분).
+- **itemColor** (VARCHAR(30)): 아이템의 색상.
+- **itemUrl** (VARCHAR(255)): 아바타 이미지의 URL.
 
 
-### 3. `avatar` 테이블
+### 3. `Avatar` 테이블
 
-- **avatar_id** (INT, PRIMARY KEY): 아바타의 고유 식별자.
-- **avatar_url** (VARCHAR(255)): 아바타 이미지의 URL.
+- **avatarIdx** (INT, PRIMARY KEY): 아바타의 고유 식별자.
+- **characterIdx** (INT): 캐릭터 명
+- **itemIdx** (INT): 아이템 명
+
 
 ### 4. `member` 테이블
 
@@ -103,6 +105,8 @@ Penny Buddy 프로젝트의 BackEnd 부분에서는 두가지 기능이 포함�
 
 ### 테이블 간의 관계
 
+- `Avatar` 테이블의 `characterIdx`는 `Characters` 테이블의 `characterIdx`를 참조하여 아바타와 캐릭터 간의 1:N 관계를 형성합니다.
+- `Avatar` 테이블의 `itemIdx`는 `Items` 테이블의 `itemIdx`를 참조하여 아바타와 아이템 간의 1:N 관계를 형성합니다.
 - `member` 테이블의 `avatar_id`는 `avatar` 테이블의 `avatar_id`를 참조하여 회원과 아바타 간의 1:1 관계를 형성합니다.
 - `record` 테이블의 `member_id`는 `member` 테이블의 `member_id`를 참조하여 회원과 기록 간의 1:N 관계를 형성합니다.
 - `record` 테이블의 `category_id`는 `category` 테이블의 `category_id`를 참조하여 카테고리와 기록 간의 1:N 관계를 형성합니다.
